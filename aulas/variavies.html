@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variaveis no CSS</title>
+    <style>
+        *, *::before, *::after{
+            box-sizing: border-box;
+        }
+        /* Declarando variaveis no seletor : root
+        O root representa a raiz HTML do documento. É o nivel mais alto. POrtanto, as variaveis declaradas aqui, podem ser usadas em qualquer lugar da pagina. */
+        :root{
+            --cor-primaria:#6200ee;
+            --cor-secundaria:#03dac6;
+            --cor-fundo:#ff9b9b;
+            --cor-texto:#af4343;
+            --espacamento-padrao: 1.5rem;
+            --raio-borda: 8px;
+        }
+
+        body{
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .explicacao {
+            --cor-primaria: black;
+            background-color: rgb(142, 233, 233);
+            padding: var(--espacamento-padrao);
+        }
+        h2,a{ color: var(--cor-primaria);
+        border-radius: var(--raio-borda);  }
+
+        h2{ background-color: var(--cor-secundaria);
+        padding: var(--espacamento-padrao);
+        padding:var(--raio-borda);}
+        a{
+            background-color: var(--cor-secundaria);
+            text-decoration: none;
+            padding-inline: var(--espacamento-padrao);
+            border-radius: var(--raio-borda);
+        }
+    </style>
+</head>
+<body>
+    <h1>Trabalhando com Variaveis</h1>
+    <div class="explicacao">
+        <h2>Poder das variaveis</h2>
+        <p>As variaveis (ou Custom Properties) Tornam o codigo CSS mais facil de manter e organizar, princiapalmente quando se precisa mudar aspectos visuais  de acordo com alguma prefenrência ou interaçao do usuario( exenplo: mudança de paleta de cores ou tema visual)</p>
+        <p>Exemplo: se quisermos mudar a cor do link abaixo e do titulo, basta alterar apenas a variavel que define a cor desses elementos</p>
+        
+    </div>
+    <p><a href="">link qualquer</a></p>
+</body>
+</html>

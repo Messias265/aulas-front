@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animação</title>
+    <style>
+        /* Alteando o Box model (Padding, width,height,border) */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Regra de Reset parcial */
+        body,
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            color: #222;
+            background-color: #f5f5ff;
+            animation-name: mudarCorFundo;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+        nav {
+            background-color: aliceblue;
+            border-block-end: solid 1px;
+            min-height: 80px;
+            position: sticky;
+            top: 0;
+
+            /* Habilitando o modo Flex */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            /* SObre a direção e eixos do Flexbox, A direção padrão é fle-direction: row, Nesse caso, jusify-content alinha os elementos no eixo main (horizontal), e o align-itens alinha os elementos no eixo cross (vertical)
+            Se mudar a direção para colum (coluna). essa logica tambem é invertida: justify-content alinhara os elemtnos verticalmente, e o align-itens alinhara os elementos horizontalmente  */
+            flex-direction: row;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: rgb(20, 20, 20);
+            font-weight: bold;
+            /* Definimoso elemtno a como contexto de posicionamento do pseudp-elemento after. Ele serve como âncora */
+            position: relative;
+        }
+
+        nav a:hover,
+            &:focus {
+                color: rgb(112, 112, 226);
+            }
+
+            nav a::after {
+                content: "";
+                background-color: brown;
+                width: 0;
+                height: 4px;
+                /* absolute precisa do relative para funcionar, esta ligado ao "a" */
+                position: absolute;
+                /* Cordenadas( left,top,riht) */
+                bottom: -4px;
+                left: 0;
+                /* cria uma transição animada da largura */
+                transition: 0.5s;
+            }
+
+            /* Ao passar o mouse no link do nav,modificar a largura do pseudo-elemento */
+            nav a:hover::after, nav a:focus::after{
+                width: 100%;
+            }
+
+
+        .hero {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            a {
+                text-decoration: none;
+                background-color: cadetblue;
+                color: aliceblue;
+                padding: 0.5rem;
+                border-radius: 7px;
+                
+                &:hover, &:focus{
+                    background-color: rgb(138, 251, 255);
+                }
+            }
+                }
+
+        .banner{
+            background-color: deepskyblue;
+            text-align: center;
+            padding: 1.2rem;
+            font-weight: bold;
+            margin-block: 1.5rem;
+            animation-name: banner;
+            animation-duration: 4s;
+            animation-delay: 1ms;
+            animation-fill-mode: backwards;
+        }
+
+
+        .cards{
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 1.2rem;
+            margin-block-end: 2rem;
+            /* background-color: violet; */
+            height: 600px;
+            /* "Quebra" o layout fazendocom que, se não houver espaço suficiente os elementos ir pra baixo */
+            flex-wrap: wrap;
+            /* Alinha os itens de maneira agrupada (precisa ter espaço suficiente ´pra isso) */
+            align-content: center;
+        }
+        
+        
+        .card{
+            animation-name: cards-ani;
+            animation-duration: 2s;
+            animation-delay: 1ms;
+            animation-fill-mode: backwards;
+            width: 250px;
+            height: 200px;
+            padding: 1rem;
+            background-color: white;
+            box-shadow: #161515 0 0 10px;
+            margin-block-end: 2rem;
+            border-radius: none;
+
+        }
+
+
+
+
+
+
+
+
+    /* Regras de animação: utilizam uma diretiva especial chamada @keyframes contendo um nome e seletores de animações */
+
+    @keyframes mudarCorFundo{
+        /* Dê/Inicio;Começo */
+        /* from{ background-color: bisque;} */
+        /* Para/Fim/Termino */
+        /* to{ background-color: antiquewhite;} */
+
+
+        0%{ background-color: aquamarine;}
+        25%{background-color: rgb(138, 235, 203);}
+        50%{background-color: rgb(75, 226, 231);}
+        75%{background-color: rgb(127, 208, 255);}
+        100%{background-color: rgb(127, 172, 255);}
+    }
+
+    h1{
+        animation-name: subir;
+        animation-duration: 2s;
+    }
+    .hero p {
+        animation-name: subir;
+        animation-duration: 2s;
+        animation-delay: 2s;
+        /* Ele aplica os estilos do primeiro keyframe antes da animação começar, curante o tempo de animation-delay, Se você tiver um delay, o elemento fica com o estilo "normal" até a animação começar */
+        animation-fill-mode: backwards;
+    }
+
+
+    @keyframes subir{
+        from{
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+
+    @keyframes banner{
+        from{
+            opacity: 0;
+            transform: translateX(-100%);
+        }
+
+        to{
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+
+    @keyframes cards-ani{
+        from{
+            opacity: 0;
+            transform: scale(10%);
+        }
+        to{
+            opacity: 1;
+            transform: scale(100%);  
+        }
+    }
+
+
+
+
+
+    .cards :nth-child(1){
+        animation-delay: 1s;
+    }
+    .cards :nth-child(2){
+        animation-delay: 2s;
+    }
+    .cards :nth-child(3){
+        animation-delay: 3s;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Barra de navegação -->
+    <nav>
+        <a href="">Inico</a>
+        <a href="">Cursos</a>
+        <a href="">Contato</a>
+    </nav>
+
+    <!-- Seção/Chamada de destaque Normalmente conhecida como "Hero" contendo uma CTA (Call To Action) -->
+
+    <section class="hero">
+        <h1>Aprenda CSS do Zero</h1>
+        <p>Layouts modernos com Flexbox</p>
+        <p><a href="">Matricule-se ja!</a></p>
+    </section>
+
+
+    <!-- Banner Publicitario -->
+
+    <div class="banner">
+        Promoção: 50% OFF Hoje!
+    </div>
+
+    <!-- Cards (Cartões) de Conteudo -->
+
+    <main class="cards">
+
+        <article class="card" >
+            <h2>HTML</h2>
+            <p>Estrutura das Paginas</p>
+        </article>
+
+        <article class="card">
+            <h2>CSS</h2>
+            <p>Estilo,Layout e animação</p>
+        </article>
+
+        <article class="card">
+            <h2>JS</h2>
+            <p>Comportamento e interatividade.</p>
+        </article>
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

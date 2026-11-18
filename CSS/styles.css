@@ -1,0 +1,237 @@
+/* Regras CSS */
+body {
+    /* background-color: bisque; */
+    background-image: url(../Imagens/watercolor.png);
+/*Forçando a imagem a ocupar todo o espaço disponivel */
+    background-size: cover;
+    /* "Prendendo" a imagem de fundo, evitando a rolagem */
+    background-attachment: fixed;
+
+
+
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1;
+    color: darkslategray;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* opacity: 0.5; */
+    color: rgb(238, 209, 78);
+    background-color: rgba(218, 121, 121, 0.726);
+    text-align: center;
+
+
+
+    /* Enchimento (ou espaçamento interno) */
+    padding-block: 30px;
+
+    /* Fazendo com o que o cabeçalho fique "preso/grudado" no topo da tela. */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 3;
+    border-inline-start: palevioletred 20px solid;
+    border-block-end: palevioletred 4px solid;
+    /* Espaçamento DENTRO do elemento */
+    padding-inline-start: 30px;
+    /* espaçamento FORA do elemento */
+    margin-inline-start: 10px;
+}
+
+h3 {
+    text-align: center;
+    font-size: 26px;
+    color: coral;
+    text-shadow: black 1px 2px 4px,
+        rgb(219, 6, 106) 0 0 10px;
+}
+
+strong {
+    background-color: aliceblue;
+}
+
+/* Seletor DESCENDENTE */
+p strong {
+    border: solid 2px rgb(233, 199, 5);
+    background-color: rgb(238, 236, 108);
+}
+
+main {
+    width: 70%;
+    margin-inline: auto;
+    padding: 10px;
+    margin-block-start: 10px;
+    background-color: antiquewhite;
+    border-radius: 10px;
+    box-shadow: black 0px 0px 10px;
+}
+
+/* Exercicio: formação do rodapé
+pule a letra
+Alinhe o conteudo para a "direit"
+Aplique cor de fundo
+Aplique cor de texto
+Coloque uma borda em cuma com 20px e cor
+Espaçamento interno geral do 20px */
+footer {
+    color: rgb(207, 41, 124);
+    font-family: cursive;
+    text-align-last: right;
+    margin-inline: auto;
+    width: 70%;
+    /* background-color: coral; */
+    border-radius: 10px;
+    box-shadow: black 0px 0px 10px;
+    border-block-end: 20px;
+    padding-block: 20px;
+    padding-inline-end: 10px;
+    /* background:linear-gradient(45deg,rgb(209, 17, 199), rgba(6, 182, 226, 0.315)); */
+    background: linear-gradient(to bottom,  #959595 0%,#0d0d0d 46%,#010101 50%,#0a0a0a 53%,#4e4e4e 76%,#383838 87%,#1b1b1b 100%);
+
+}
+
+p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+
+}
+/* Seletor CLASSE */
+.destaque{
+    color: brown;
+    font-style: italic;
+
+}
+.sombra-texto{text-shadow: rgb(233, 217, 71) 1px 1px 4px;}
+.sombra-caixa{box-shadow: brown 0 0 4px;}
+.link-saiba-mais a {
+    color: crimson;
+    text-decoration: none;
+    background-color:cornsilk;
+    padding: 4px;
+    border-radius: 4px;
+}
+/* Seletor PSEUDO-CLASSE
+smepre inicia com sinal de dois pontos :
+Normalmente, a pseudo-classe esta ligada a algum elemento. */
+.link-saiba-mais a:hover{
+    background-color: rgb(236, 128, 128);
+    
+}
+
+
+/* Regras para menu de navegação */
+nav {
+    border: solid 1px white;
+    background-color: hotpink;
+    width: 80%;
+    margin-inline:auto;
+    border-radius: 10px;
+    ul {
+        /* Removendo os marcadores de lista */
+        list-style: none;
+        /* Removendo espaçamento pdarão do navegador */
+        margin: 0;
+        padding: 0;
+        /* Habilitando o flexbox para ajustes de alinhamento */
+        display: flex;
+        justify-content:space-evenly;
+        a {
+            color:whitesmoke;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            height: 50px;
+            width: 150px;
+            /* Para permitir ajustes de tamanho( Largura e altura) transformamos o elemtento em flex. Isso tambem possibilitao uso de propriedades de alinhamento */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Usamos o & para associar o :hoveor e o :focus ao link (tag a). Obs: o :focus é para permitir o acionamento do linl via reclado tambem. :hover funciona somente para mouse */
+            &:hover, &:focus{
+                background-color: aqua;
+                color:black;
+            }
+
+            &.link-ativo {
+                background-color: cornflowerblue;
+            }
+        }
+    }
+}
+
+/* Tornando as imagens flexiveis/responsaiveis */
+img{
+    max-width: 100%;
+}
+figure{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 640px;
+    margin-inline: auto;
+
+    /* Tornando o figure referência para o figcaption */
+    position: relative;
+
+    figcaption{
+        font-weight: bold;
+        font-size: 18px;
+        position: absolute;
+        background-color: rgba(245, 161, 5, 0.548);
+        bottom: 60px;
+        width: 100%;
+        padding-block: 10px;
+    }
+}
+/* Pseudo-elemento ::marker, :last-child e nth child */
+.exemplos-comuns li::marker {
+    content:"🥶 ";
+    font-size: 20px;
+}
+.exemplos-comuns li:first-child {
+    font-weight: bolder;
+}
+
+.exemplos-comuns li:last-child{
+    font-style: italic;
+}
+.exemplos-comuns li:nth-child(3){
+    color: rebeccapurple
+}
+
+/* Resetamso o summary */
+summary {
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+}
+/* Definimos o icone padrão no estado inicial do summary */
+summary::before{
+    content: "➕";
+}
+/* Seletor de [atributo] Definimos, quand o details estiver aberto (open), outro icone para o summery */
+details[open] summary::before {
+    content: "➖";
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Função do CSS 1</title>
+    <style>*, *::before *::after{ box-sizing: border-box;} 
+    body{
+        background-color: lightcyan;
+        font-family: sans-serif;
+        padding: 2rem;
+    }
+    article{
+        background-color:blanchedalmond;
+        border: solid 2px;
+        padding: 1.5rem;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: black 1px 10px 10px;
+    }
+    .max{font-size: max(18px, 2vw);
+
+    }
+
+    .min{
+        width: min(90%, 800px);
+    }
+
+    .clamp{
+        font-size: clamp(16px, 4vw, 24px);
+    }
+    /* img{
+        width: clamp(1000px, 10vw, 400px);
+    } */
+    
+    a{
+        background-color: bisque;
+        border-radius: 10px;
+        text-decoration: none;
+        color:cornflowerblue;
+    }
+
+
+    </style>
+</head>
+<body>
+    <h1>Demonstrações de algumas funções</h1>
+    
+    <h2>Como funciona o "Min", "Max" e "clamp"</h2>
+    <p>As funções "min", "max" e "clamp" são bem parecidas, trabalhando com a adptação da tela do usario para ficar menor ou maior, mandatendo aquele tamanho seja de imagens e textos</p>
+    <hr>
+    
+    <article class="min">
+    <h3>MIN</h3>
+    <p>O min serve para manter como o proprio nome diz, o minino que deve ficar aquele determinado conteudo utilizando medidas para colocar um limite </p>
+        <hr>
+        <!-- <p><img src="/Imagens/apple.jpg" alt="exemplo kk"></p> -->
+    </article>
+    <article class="max">
+        <h3>MAX</h3>
+        <p>Assim como o nome ja diz, é o maximo que definimos para o conteudo, que pode se estender ate onde ele foi  determinado com base nos px, vh e outras unidades </p>
+        
+        <hr>
+        <!-- <p><img src="/Imagens/apple.jpg" alt="exemplo 2"></p> -->
+    </article>
+    <hr>
+    <article class="clamp">
+        <h3>CLAMP</h3>
+        <p>Ja o clamp serve para definidir um tamnho de fonte, um tamanho minimo de fonte, um tamnho maximo e meio que permitir uma escala entre esses tamanhos </p>
+        <hr>
+        <!-- <p><img src="/Imagens/apple.jpg" alt="exemplo 3"></p> -->
+    </article>
+
+    <p><a href="/exercicios/exercicio5de2.html">Formula "Calc"</a></p>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

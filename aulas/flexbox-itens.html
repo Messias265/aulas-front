@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Itens</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: cornsilk;
+            padding: 1rem;
+        }
+        h1{
+            font-size: 1.2rem;
+            margin-block-end: 0.8rem;
+        } 
+        /* Flex container  */
+        .container{
+            background-color: aliceblue;
+            border-radius: 8px;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            margin-block: 10px;
+
+
+
+        }
+        /* flex items */
+        .item{
+            background-color: azure;
+            padding: 20px;
+            text-align: center;
+             /* Tamanho idela para flex */
+            flex-basis: 150px;
+
+            /* Deinido se o item cresce */
+            flex-grow: 1;
+
+            /* definido se o item econhcolhe */
+            flex-shrink: 1;}
+            .d{
+                background-color: cadetblue;
+                flex-grow: 3;
+            }
+
+            /* shrink com numeração menor tente a diminuir mais */
+            .e{
+                background-color: burlywood;
+                flex-shrink: 2;
+            }
+
+            /* flex grow junto com flex shrink,deixa travado em um tamanho */
+            .f{
+                background-color: brown;
+                flex-grow: 0;
+                flex-shrink: 0;
+                justify-content: center;
+            }
+
+
+            /* Order dentro da div, consegue manipular a sequencia */
+            .g{
+                background-color: gold;
+                order: 3;
+            }
+
+
+            /* Usar align-self para selecionar um item */
+            .h{
+                background-color: violet;
+                order: 1;
+                align-self: center;
+            }
+
+            .i{
+                background-color: thistle;
+                order: 2;
+                align-self: flex-end;
+            }
+            .alinhamentos{
+                height: 300px;
+                align-items: flex-start;
+            }
+        
+    </style>
+</head>
+<body>
+    <h1>Conhecendo e experimentando propriedades flex para os itens de container</h1>
+    <div class="container">
+        <div class="item a">Item A</div>
+        <div class="item b">Item B</div>
+        <div class="item c ">Item C</div>
+    </div>
+
+    <div class="container">
+        <div class="item d">Item D</div>
+        <div class="item e ">Item E</div>
+        <div class="item f">Item F</div>
+    </div>
+    
+    
+    <div class="container alinhamentos">
+        <div class="item g">Item g</div>
+        <div class="item h ">Item h</div>
+        <div class="item i">Item i</div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

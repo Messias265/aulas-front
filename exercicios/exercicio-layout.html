@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício Layout Flexbox</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: rgb(255, 255, 255);
+            margin: 0;
+
+        }
+
+        aside {
+            background: #8A2BE2;
+            background: linear-gradient(0deg, rgb(137, 30, 238) 0%, rgb(63, 13, 211) 100%);
+            color: aliceblue;
+            padding: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            /* isso resolve a coluna */
+            height: 100vh;
+
+
+        }
+
+        .item {
+            background-color: bisque;
+            border-radius: 8px;
+            padding: 10px;
+            margin-block: 10px;
+            display: flex;
+            gap: 10px;
+            text-align: center;
+
+            h4 {
+                background-color: rgb(248, 149, 149);
+            }
+
+            p {
+                background-color: rgb(134, 248, 143);
+                width: 100%;
+            }
+
+            time {
+                background-color: rgb(125, 200, 243);
+            }
+
+            h4,
+            p,
+            time {
+                padding: 10px;
+            }
+
+            time,
+            h4 {
+                width: 140px;
+                flex-grow: 0;
+                flex-shrink: 0;
+            }
+
+
+        }
+
+        .tudo {
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+            color: aliceblue;
+            padding: 0.5rem;
+            border-radius: 7px;
+
+            &:hover,
+            &:focus {
+                background-color: rgba(248, 248, 248, 0.212);
+            }
+
+
+        }
+
+        header {
+            background: #f7a707;
+            background: linear-gradient(90deg, rgba(247, 167, 7, 1) 19%, rgba(240, 53, 53, 1) 49%);
+            color: aliceblue;
+            display: flex;
+            align-items: center;
+            /* centraliza verticalmente */
+            justify-content: space-between;
+            /* joga um pra cada lado */
+            padding: 0.5rem 1rem;
+        }
+
+        header p {
+            background-color: white;
+            color: black;
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+
+            article {
+                background-color: rgb(236, 221, 221);
+                border-radius: 8px;
+                padding: 20px;
+                width: 100%;
+            }
+
+        }
+
+        main {
+            padding: 15px;
+        }
+
+
+        .container {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="tudo">
+
+        <aside>
+            <h2>Painel</h2>
+            <a href="#">Dashboard</a>
+            <a href="#">Usuários</a>
+            <a href="#">Relatórios</a>
+            <a href="#">Configurações</a>
+        </aside>
+
+        <div class="container">
+
+            <header>
+                <h1>Visão Geral</h1>
+                <p>🔓 Admin</p>
+            </header>
+
+            <main>
+
+                <section class="cards">
+                    <article>
+                        <h3>Usuários</h3>
+                        <p>1200</p>
+                    </article>
+
+                    <article>
+                        <h3>Vendas</h3>
+                        <p>R$ 8.500</p>
+                    </article>
+
+                    <article>
+                        <h3>Acessos</h3>
+                        <p>3.200</p>
+                    </article>
+                </section>
+
+                <section>
+                    <h3>Últimas atividades</h3>
+
+                    <div class="lista-atividades">
+
+                        <article class="item">
+                            <h4>Ozzy Osbourne</h4>
+                            <p>Comprou um curso avançado de JS</p>
+                            <time>Hoje</time>
+                        </article>
+
+                        <article class="item">
+                            <h4>Ronnie James Dio</h4>
+                            <p>Atualizou o perfil com novas informações</p>
+                            <time>Ontem</time>
+                        </article>
+
+                        <article class="item">
+                            <h4>Ian Gillan</h4>
+                            <p>Fez login no sistema</p>
+                            <time>2 dias atrás</time>
+                        </article>
+
+                        <article class="item">
+                            <h4>Tony Martin</h4>
+                            <p>Solicitou suporte técnico</p>
+                            <time>3 dias atrás</time>
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: cornflowerblue;
+        }
+        header{
+            background-color: rgb(240, 146, 24);
+            align-items: center;
+            display: flex;
+            flex-direction:column;
+            min-height: 80px;
+            margin-inline: auto;
+            justify-content: space-around;
+            padding-block-end: 10px;
+            
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            
+        }
+        nav{
+            background-color: rgb(238, 238, 146);
+            height:50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+            a{
+                text-decoration: none;
+                font-weight: bolder;
+            }
+        }
+        article{
+            background-color: bisque;
+            margin: 5px;
+            padding: 1rem;
+        }
+
+
+        footer{
+            background-color: burlywood;
+        }
+        
+        main{
+            margin-top: 100px;
+        }
+        @media (min-width: 450px){
+            main{ display: flex;flex-wrap: wrap; }
+            article:nth-child(1){flex-basis: 59%;}
+            article:nth-child(2){flex-basis: 35%;}
+            article:nth-child(3){flex-basis: 100%;}
+        }
+        @media(min-width:785px){
+            main{display: flex;flex-wrap: wrap;}
+            article:nth-child(1){flex-basis: 33%;}
+            article:nth-child(2){flex-basis: 33%;}
+            article:nth-child(3){flex-basis: 30%;}
+            header{flex-direction: row;}
+            nav{background-color: transparent;
+            a{background-color: aqua;
+            padding: 10px;}}
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Layout Responsivo
+        </h1>
+        <nav>
+            <a href="">Link</a>
+            <a href="">Link</a>
+            <a href="">Link</a>
+        </nav>
+
+    </header>
+    <main>
+        <article>
+            <h2>Coluna A</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad culpa veritatis quo repellat illum voluptate
+                delectus magnam nam beatae, nihil eum, eius suscipit tempore sed ratione quia vel porro at!</p>
+        </article>
+        <article>
+            <h2>Coluna B</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet, reiciendis quaerat quidem
+                corporis voluptas vitae voluptatibus exercitationem enim atque magnam est. Deleniti harum, vero officiis
+                sed iure maiores dolor!</p>
+        </article>
+        <article>
+            <h2>Coluna C</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Debitis amet, reiciendis quaerat quidem
+                corporis voluptas vitae voluptatibus exercitationem enim atque magnam est. Deleniti harum, vero officiis
+                sed iure maiores dolor!</p>
+        </article>
+    </main>
+
+    <footer>
+        <h2>Rodapé</h2>
+        <p>Lorem ipsum dolor sit amet.</p>
+    </footer>
+
+
+</body>
+
+</html>
